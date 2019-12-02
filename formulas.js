@@ -126,6 +126,15 @@ function filterPerformance(posts) {
         }
     }
     console.timeEnd('for loop');
+    newData = [];
+    console.time('for of loop');
+    for(let post of posts) {
+        if((+post.upvotes*0.2 + +post.downvotes*0.3 + +post.commentCount*0.1)/3 > fitlerValue) {
+            newData.push(post);
+        }
+    }
+    console.timeEnd('for of loop');
+
 
     newData = [];
     console.time('for each');
